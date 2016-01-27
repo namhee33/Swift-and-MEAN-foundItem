@@ -19,25 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0e-rT-Rj7">
-                                <rect key="frame" x="20" y="24" width="39" height="21"/>
+                                <rect key="frame" x="20" y="31" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tRd-At-cGx">
-                                <rect key="frame" x="70" y="20" width="510" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="510" id="cIr-FU-Mzc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ya9-6V-hkK">
-                                <rect key="frame" x="20" y="58" width="560" height="219"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="219" id="JeK-aH-Exo"/>
-                                </constraints>
-                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pu-G3-Pao">
                                 <rect key="frame" x="70" y="285" width="72" height="30"/>
                                 <color key="backgroundColor" red="0.84960666826626319" green="0.87266871206284269" blue="0.89121685606060608" alpha="1" colorSpace="calibratedRGB"/>
@@ -140,26 +126,36 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" placeholder="Search items" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lAB-dO-nGO">
+                                <rect key="frame" x="70" y="20" width="510" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ya9-6V-hkK">
+                                <rect key="frame" x="20" y="64" width="560" height="213"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="213" id="0OJ-GK-Eod"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="y0e-rT-Rj7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="4" id="1Z4-Ub-iLX"/>
                             <constraint firstAttribute="leadingMargin" secondItem="POf-EN-Lva" secondAttribute="leading" id="1yp-d7-puU"/>
-                            <constraint firstItem="tRd-At-cGx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="4K0-ZI-MyR"/>
                             <constraint firstItem="jRq-UP-7IU" firstAttribute="top" secondItem="POf-EN-Lva" secondAttribute="bottom" constant="8" id="5lT-JO-HuN"/>
                             <constraint firstItem="POf-EN-Lva" firstAttribute="top" secondItem="ya9-6V-hkK" secondAttribute="bottom" constant="8" id="BuU-be-KLV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jRq-UP-7IU" secondAttribute="bottom" constant="20" id="NhW-Bn-abT"/>
-                            <constraint firstItem="tRd-At-cGx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ORw-5b-MYX"/>
-                            <constraint firstItem="ya9-6V-hkK" firstAttribute="top" secondItem="tRd-At-cGx" secondAttribute="bottom" constant="8" id="RXw-fm-lun"/>
+                            <constraint firstItem="y0e-rT-Rj7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="11" id="QGo-NY-aGU"/>
+                            <constraint firstItem="ya9-6V-hkK" firstAttribute="top" secondItem="lAB-dO-nGO" secondAttribute="bottom" id="STx-If-zsE"/>
                             <constraint firstItem="jRq-UP-7IU" firstAttribute="top" secondItem="ya9-6V-hkK" secondAttribute="bottom" constant="46" id="VMJ-KF-FTu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lAB-dO-nGO" secondAttribute="trailing" id="Y1Q-7I-Gre"/>
                             <constraint firstItem="8Pu-G3-Pao" firstAttribute="leading" secondItem="POf-EN-Lva" secondAttribute="trailing" constant="6" id="ZjC-pb-gHT"/>
                             <constraint firstItem="jRq-UP-7IU" firstAttribute="top" secondItem="8Pu-G3-Pao" secondAttribute="bottom" constant="8" id="bFs-TT-kTt"/>
-                            <constraint firstItem="tRd-At-cGx" firstAttribute="centerY" secondItem="y0e-rT-Rj7" secondAttribute="centerY" id="co8-k3-nnc"/>
+                            <constraint firstItem="lAB-dO-nGO" firstAttribute="leading" secondItem="y0e-rT-Rj7" secondAttribute="trailing" constant="11" id="cEk-7x-C7m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jRq-UP-7IU" secondAttribute="trailing" id="cpK-21-aCG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ya9-6V-hkK" secondAttribute="trailing" id="drN-fe-UzB"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ya9-6V-hkK" secondAttribute="leading" id="fMj-cN-cfY"/>
                             <constraint firstItem="jRq-UP-7IU" firstAttribute="top" secondItem="Nxd-OA-SBu" secondAttribute="bottom" constant="-3" id="gGF-Dh-xsk"/>
                             <constraint firstItem="8Pu-G3-Pao" firstAttribute="top" secondItem="ya9-6V-hkK" secondAttribute="bottom" constant="8" id="kFd-xQ-3el"/>
+                            <constraint firstItem="lAB-dO-nGO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="kU3-2f-dSP"/>
                             <constraint firstItem="Nxd-OA-SBu" firstAttribute="top" secondItem="ya9-6V-hkK" secondAttribute="bottom" constant="-4" id="mL3-PT-3y8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="jRq-UP-7IU" secondAttribute="leading" id="quc-2V-bO2"/>
                             <constraint firstItem="y0e-rT-Rj7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rlI-ek-f6B"/>
@@ -167,8 +163,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="itemSearchTextField" destination="tRd-At-cGx" id="ivk-9j-4hh"/>
                         <outlet property="map" destination="ya9-6V-hkK" id="sH4-Ed-mqc"/>
+                        <outlet property="searchOutlet" destination="lAB-dO-nGO" id="jGI-AC-uvF"/>
                         <outlet property="tableView" destination="jRq-UP-7IU" id="b2M-C9-c6n"/>
                     </connections>
                 </viewController>

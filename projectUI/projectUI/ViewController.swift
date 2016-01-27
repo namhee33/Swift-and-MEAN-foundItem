@@ -6,29 +6,36 @@
 //  Copyright © 2016 Sarah Sherman. All rights reserved.
 //
 
+
+// master file
+
 import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, CancelButtonDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, CancelButtonDelegate, MKMapViewDelegate, UISearchBarDelegate {
     
     var locationManager: CLLocationManager!
     var location: CLLocation?
     
+    
     var tableIsFoundItems = true
+    var searchActive : Bool = false
     
     var items = [Item(name: "shoes", latitude: 47.611588, longitude: -122.196994, distance: 5, zipCode: 98004, details: "size 6", dateListed: "12/29/15", found: 0), Item(name: "shirt", latitude: 47.61067, longitude: -122.203068, distance: 5, zipCode: 98052, details: "blue, size small", dateListed: "1/14/16", found: 10), Item(name: "earrings", latitude: 49.000345, longitude: -122.197000, distance: 6, zipCode: 98008, details: "diamonds", dateListed: "1/20/16", found: 2)]
     
     var tableItems = [Item]()
     
-
-    @IBOutlet weak var itemSearchTextField: UITextField!
+    var tempTable = [Item]()
     
     @IBOutlet weak var map: MKMapView!
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var searchOutlet: UISearchBar!
+    
     @IBAction func foundButtonPressed(sender: UIButton) {
+        print("heeeerrreee")
         if tableIsFoundItems == false {
             tableItems = []
             for var i = 0; i < items.count; ++i {
@@ -62,6 +69,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         tableView.dataSource = self
         tableView.delegate = self
         map.delegate = self
+        searchOutlet.delegate = self
+        
         
         for var i = 0; i < items.count; ++i {
             if items[i].found != 0 {
@@ -69,15 +78,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             }
         }
         
+        tempTable = tableItems
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest  //later change to kCLLocationAccuracyNearestTenMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        //        let userCoordinate = mapView.userLocation.coordinate
-        //        print(userCoordinate)
-//        print("Current Location from CL: ", locationManager.location)
         
         let currentLocation = locationManager.location
         
@@ -174,8 +182,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         removeAnnotations()
-        addItemAnnotation(items[indexPath.row])
+        addItemAnnotation(tableItems[indexPath.row])
         
+    }
+    
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        print("hi")
     }
     
     func addItemAnnotation(item: Item){
@@ -197,6 +209,59 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         }
         map.removeAnnotations(annotationsToRemove)
     }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    
+    //search functions
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        print(tableItems)
+        
+        tempTable = tableItems
+        print(tempTable)
+        tableItems = []
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        print("hi")
+        searchOutlet.text! = ""
+        dismissKeyboard()
+        tableItems = tempTable
+        self.tableView.reloadData()
+        searchActive = false;
+    }
+    
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        print("here")
+        tableItems = items.filter({ (Item) -> Bool in
+            let tmp: NSString = NSString(string: Item.name)
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        
+        
+        if(tableItems.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
+    }
+
 
 }
 
