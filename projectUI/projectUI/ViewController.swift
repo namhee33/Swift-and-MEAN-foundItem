@@ -13,11 +13,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-<<<<<<< HEAD
-class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, CancelButtonDelegate, MKMapViewDelegate, UISearchBarDelegate {
-=======
 class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, CancelButtonDelegate, DoneButtonDelegate, MKMapViewDelegate, UISearchBarDelegate {
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
     
     var locationManager: CLLocationManager!
     var location: CLLocation?
@@ -26,23 +22,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     var tableIsFoundItems = true
     var searchActive : Bool = false
     
-<<<<<<< HEAD
-    var items = [Item(name: "shoes", latitude: 47.611588, longitude: -122.196994, distance: 5, zipCode: 98004, details: "size 6", dateListed: "12/29/15", found: 0), Item(name: "shirt", latitude: 47.61067, longitude: -122.203068, distance: 5, zipCode: 98052, details: "blue, size small", dateListed: "1/14/16", found: 10), Item(name: "earrings", latitude: 49.000345, longitude: -122.197000, distance: 6, zipCode: 98008, details: "diamonds", dateListed: "1/20/16", found: 2)]
-=======
+
     var items = [Item]()
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
     
     var tableItems = [Item]()
     
     var tempTable = [Item]()
     
-<<<<<<< HEAD
-=======
+
     var currentLocation: CLLocation?
     
     var defaultImage = "noImageFound.png"
     
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
     @IBOutlet weak var map: MKMapView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -54,11 +46,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         if tableIsFoundItems == false {
             tableItems = []
             for var i = 0; i < items.count; ++i {
-<<<<<<< HEAD
-                if items[i].found != 0 {
-=======
+
                 if items[i].founds.count  != 0 {
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
                     tableItems.append(items[i])
                 }
             }
@@ -72,11 +61,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         if tableIsFoundItems == true {
             tableItems = []
             for var i = 0; i < items.count; ++i {
-<<<<<<< HEAD
-                if items[i].found == 0 {
-=======
+
                 if items[i].founds.count  == 0 {
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
                     tableItems.append(items[i])
                 }
             }
@@ -89,37 +76,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-=======
+
         dispatch_async(dispatch_get_main_queue(), {
             self.httpGetRequest()
         })
         
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
         tableView.dataSource = self
         tableView.delegate = self
         map.delegate = self
         searchOutlet.delegate = self
         
-<<<<<<< HEAD
-        
-        for var i = 0; i < items.count; ++i {
-            if items[i].found != 0 {
-                tableItems.append(items[i])
-            }
-        }
-        
-        tempTable = tableItems
-=======
-//        
-//        for var i = 0; i < items.count; ++i {
-//            if items[i].founds.count != 0 {
-//                tableItems.append(items[i])
-//            }
-//        }
-//        
-//        tempTable = tableItems
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -128,11 +96,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         locationManager.startUpdatingLocation()
         
         
-<<<<<<< HEAD
-        let currentLocation = locationManager.location
-=======
+
         currentLocation = locationManager.location
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
         
         let location2D = CLLocationCoordinate2D(
             latitude: currentLocation!.coordinate.latitude,
@@ -189,12 +155,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         
     }
   
-<<<<<<< HEAD
-    
-    
-=======
+
     func loadImage(imageUrl: String) -> UIImage{
-        let imgUrl = "http://namhees-MacBook-Pro.local:7000/" + imageUrl
+        let imgUrl = "http://Sarahs-MacBook-Pro.local:7000/" + imageUrl
         print("ImageURL: ", imgUrl)
         let urlStr: NSString = imgUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         let pictureURL = NSURL(string: urlStr as String)
@@ -213,19 +176,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         let urlStr = "http://namhees-macbook-pro.local:7000/requestImages/test1.jpg" */
         
     }
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
     
     //table view stuffs
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell")! as! ItemCell
         let item = tableItems[indexPath.row]
-<<<<<<< HEAD
-        cell.zipCodeLabel.text = String(item.zipCode)
-        cell.detailsLabel.text = String(item.details)
-        cell.dateListedLabel.text = String(item.dateListed)
-        cell.numberFoundLabel.text = String(item.found)
-=======
+
         dispatch_async(dispatch_get_main_queue(), {
             cell.itemImage.image = self.loadImage(item.imageUrl)
         })
@@ -234,7 +192,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         // ******* ?????? have to chaange date format
         cell.dateListedLabel.text = String(item.createdAt)
         cell.numberFoundLabel.text = String(item.founds.count)
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
         return cell
     }
     
@@ -243,18 +201,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         return tableItems.count
     }
     
+    
     //segue
+    
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("DetailsSegue", sender: tableView.cellForRowAtIndexPath(indexPath))
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddItem" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let controller = navigationController.topViewController as! AddItemViewController
+            controller.cancelButtonDelegate = self
+            
+            controller.doneButtonDelegate = self
+            controller.myLocationX = (currentLocation?.coordinate.longitude)!
+            controller.myLocationY = (currentLocation?.coordinate.latitude)!
+        }
         
-        let navigationController = segue.destinationViewController as! UINavigationController
-        let controller = navigationController.topViewController as! AddItemViewController
-        controller.cancelButtonDelegate = self
-<<<<<<< HEAD
-=======
-        controller.doneButtonDelegate = self
-        controller.myLocationX = (currentLocation?.coordinate.longitude)!
-        controller.myLocationY = (currentLocation?.coordinate.latitude)!
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+        if segue.identifier == "DetailsSegue" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let controller = navigationController.topViewController as! ItemDetailsViewController
+            controller.cancelButtonDelegate = self
+        }
+        
+
+
+       
+
         
     }
 
@@ -264,8 +238,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-<<<<<<< HEAD
-=======
+
     func doneButtonPressedFrom(controller: UIViewController){
         dispatch_async(dispatch_get_main_queue(), {
             self.httpGetRequest()
@@ -292,7 +265,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
 //        tableView.reloadData()
         dismissViewControllerAnimated(true, completion: nil)
     }
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         removeAnnotations()
@@ -300,21 +273,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         
     }
     
-    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        print("hi")
-    }
     
     func addItemAnnotation(item: Item){
         let itemAnnotation = MKPointAnnotation()
-<<<<<<< HEAD
-        let itemLocation2D = CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude)
-        itemAnnotation.coordinate = itemLocation2D
-        itemAnnotation.title = item.name
-=======
+
         let itemLocation2D = CLLocationCoordinate2D(latitude: item.locationY, longitude: item.locationX)
         itemAnnotation.coordinate = itemLocation2D
         itemAnnotation.title = item.itemName
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
         self.map.addAnnotation(itemAnnotation)
         self.map.selectAnnotation(itemAnnotation,animated:true)
         
@@ -368,11 +334,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         print("here")
         tableItems = items.filter({ (Item) -> Bool in
-<<<<<<< HEAD
-            let tmp: NSString = NSString(string: Item.name)
-=======
+
             let tmp: NSString = NSString(string: Item.itemName)
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
             let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
@@ -385,14 +349,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         }
         self.tableView.reloadData()
     }
-<<<<<<< HEAD
-=======
-    
+
     func httpGetRequest(){
         items = []
         //        if let urlToReq = NSURL(string: "http://localhost:7000/items"){
 //        if let urlToReq = NSURL(string: "http://192.168.1.152:7000/items"){  //Dojo
-        if let urlToReq = NSURL(string: "http://namhees-MacBook-Pro.local:7000/items"){  //Home
+        if let urlToReq = NSURL(string: "http://Sarahs-MacBook-Pro.local:7000/items"){  //Home
             
             if let packagedData = NSData(contentsOfURL: urlToReq){
                 if let unpackagedData = parseJSON(packagedData){
@@ -481,7 +443,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         return arrOfObjects!
     }
 
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+
 
 
 }

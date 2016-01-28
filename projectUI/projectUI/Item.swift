@@ -8,28 +8,7 @@
 
 import Foundation
 
-<<<<<<< HEAD
-class Item {
-    var name: String
-    var latitude: Double
-    var longitude: Double
-    var distance: Int
-    var zipCode: Int
-    var details: String
-    var dateListed: String
-    var found: Int
-    init(name: String, latitude: Double, longitude: Double, distance: Int, zipCode: Int, details: String, dateListed: String, found: Int) {
-        self.name = name
-        self.latitude = latitude
-        self.longitude = longitude
-        self.distance = distance
-        self.zipCode = zipCode
-        self.details = details
-        self.dateListed = dateListed
-        self.found = found
-    }
-}
-=======
+
 
 class Item {
     var iid: String
@@ -55,4 +34,3 @@ class Item {
         self.createdAt = dateListed
         self.founds = [NSDictionary]()
     }}
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792

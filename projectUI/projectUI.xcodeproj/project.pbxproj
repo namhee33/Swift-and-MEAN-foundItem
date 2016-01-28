@@ -17,13 +17,12 @@
 		F5697CFC1C5819AA00E61E16 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5697CFB1C5819AA00E61E16 /* Protocols.swift */; };
 		F5697CFE1C5819F300E61E16 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5697CFD1C5819F300E61E16 /* AddItemViewController.swift */; };
 		F5697D001C581DB800E61E16 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5697CFF1C581DB800E61E16 /* Item.swift */; };
-<<<<<<< HEAD
-=======
+		F56FAB761C5AB959000EBE92 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB751C5AB959000EBE92 /* ItemDetailViewController.swift */; };
+		F56FAB781C5AB963000EBE92 /* ReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB771C5AB962000EBE92 /* ReplyCell.swift */; };
+		F56FAB7D1C5ABD35000EBE92 /* noImageFound.png in Resources */ = {isa = PBXBuildFile; fileRef = F56FAB7B1C5ABD35000EBE92 /* noImageFound.png */; };
+		F56FAB7E1C5ABD35000EBE92 /* uploadImage.png in Resources */ = {isa = PBXBuildFile; fileRef = F56FAB7C1C5ABD35000EBE92 /* uploadImage.png */; };
 		F645E6F01C597C710097166E /* Found.swift in Sources */ = {isa = PBXBuildFile; fileRef = F645E6EF1C597C710097166E /* Found.swift */; };
 		F645E6F21C5992A00097166E /* DoneButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F645E6F11C5992A00097166E /* DoneButtonProtocol.swift */; };
-		F645E6F61C5997940097166E /* noImageFound.png in Resources */ = {isa = PBXBuildFile; fileRef = F645E6F41C5997940097166E /* noImageFound.png */; };
-		F645E6F71C5997940097166E /* uploadImage.png in Resources */ = {isa = PBXBuildFile; fileRef = F645E6F51C5997940097166E /* uploadImage.png */; };
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,13 +38,12 @@
 		F5697CFB1C5819AA00E61E16 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		F5697CFD1C5819F300E61E16 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		F5697CFF1C581DB800E61E16 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
+		F56FAB751C5AB959000EBE92 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		F56FAB771C5AB962000EBE92 /* ReplyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyCell.swift; sourceTree = "<group>"; };
+		F56FAB7B1C5ABD35000EBE92 /* noImageFound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noImageFound.png; path = ../../../../Downloads/noImageFound.png; sourceTree = "<group>"; };
+		F56FAB7C1C5ABD35000EBE92 /* uploadImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uploadImage.png; path = ../../../../Downloads/uploadImage.png; sourceTree = "<group>"; };
 		F645E6EF1C597C710097166E /* Found.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Found.swift; sourceTree = "<group>"; };
 		F645E6F11C5992A00097166E /* DoneButtonProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneButtonProtocol.swift; sourceTree = "<group>"; };
-		F645E6F41C5997940097166E /* noImageFound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noImageFound.png; path = ../../../../../../Downloads/noImageFound.png; sourceTree = "<group>"; };
-		F645E6F51C5997940097166E /* uploadImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uploadImage.png; path = ../../../../../../Downloads/uploadImage.png; sourceTree = "<group>"; };
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +76,7 @@
 		F5697CE41C5801A700E61E16 /* projectUI */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-=======
 				F645E6F31C5997650097166E /* supportFiles */,
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
 				F5697CE51C5801A700E61E16 /* AppDelegate.swift */,
 				F5697CE71C5801A700E61E16 /* ViewController.swift */,
 				F5697CFD1C5819F300E61E16 /* AddItemViewController.swift */,
@@ -93,27 +88,23 @@
 				F5697CFB1C5819AA00E61E16 /* Protocols.swift */,
 				F5697CFF1C581DB800E61E16 /* Item.swift */,
 				F50E5C551C5827B000932B8A /* Pin.swift */,
-<<<<<<< HEAD
-=======
 				F645E6EF1C597C710097166E /* Found.swift */,
 				F645E6F11C5992A00097166E /* DoneButtonProtocol.swift */,
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+				F56FAB751C5AB959000EBE92 /* ItemDetailViewController.swift */,
+				F56FAB771C5AB962000EBE92 /* ReplyCell.swift */,
 			);
 			path = projectUI;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-=======
 		F645E6F31C5997650097166E /* supportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				F645E6F41C5997940097166E /* noImageFound.png */,
-				F645E6F51C5997940097166E /* uploadImage.png */,
+				F56FAB7B1C5ABD35000EBE92 /* noImageFound.png */,
+				F56FAB7C1C5ABD35000EBE92 /* uploadImage.png */,
 			);
 			name = supportFiles;
 			sourceTree = "<group>";
 		};
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,11 +137,7 @@
 				TargetAttributes = {
 					F5697CE11C5801A700E61E16 = {
 						CreatedOnToolsVersion = 7.2;
-<<<<<<< HEAD
 						DevelopmentTeam = 5ZN968QNY6;
-=======
-						DevelopmentTeam = V4LS36MR3T;
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
 					};
 				};
 			};
@@ -180,11 +167,8 @@
 				F5697CF01C5801A700E61E16 /* LaunchScreen.storyboard in Resources */,
 				F5697CED1C5801A700E61E16 /* Assets.xcassets in Resources */,
 				F5697CEB1C5801A700E61E16 /* Main.storyboard in Resources */,
-<<<<<<< HEAD
-=======
-				F645E6F61C5997940097166E /* noImageFound.png in Resources */,
-				F645E6F71C5997940097166E /* uploadImage.png in Resources */,
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
+				F56FAB7D1C5ABD35000EBE92 /* noImageFound.png in Resources */,
+				F56FAB7E1C5ABD35000EBE92 /* uploadImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,20 +179,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				F50E5C561C5827B000932B8A /* Pin.swift in Sources */,
-				F5697CE81C5801A700E61E16 /* ViewController.swift in Sources */,
-=======
+				F56FAB761C5AB959000EBE92 /* ItemDetailViewController.swift in Sources */,
 				F645E6F21C5992A00097166E /* DoneButtonProtocol.swift in Sources */,
 				F50E5C561C5827B000932B8A /* Pin.swift in Sources */,
 				F5697CE81C5801A700E61E16 /* ViewController.swift in Sources */,
 				F645E6F01C597C710097166E /* Found.swift in Sources */,
->>>>>>> e61c26e3881f3599101a354c6a649be9c5090792
 				F5697CFE1C5819F300E61E16 /* AddItemViewController.swift in Sources */,
 				F5697CE61C5801A700E61E16 /* AppDelegate.swift in Sources */,
 				F5697CFA1C580E9500E61E16 /* ItemCell.swift in Sources */,
 				F5697D001C581DB800E61E16 /* Item.swift in Sources */,
 				F5697CFC1C5819AA00E61E16 /* Protocols.swift in Sources */,
+				F56FAB781C5AB963000EBE92 /* ReplyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
