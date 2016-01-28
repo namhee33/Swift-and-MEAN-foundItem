@@ -41,7 +41,24 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func doneBtnPressed(sender: UIBarButtonItem) {
         
         postRequest()
+        //email Test
+        postEmail()
         
+    }
+    
+    func postEmail(){
+        if let urlToReq = NSURL(string: "http://namhees-MacBook-Pro.local:7000/emailMe"){
+            let request: NSMutableURLRequest = NSMutableURLRequest(URL: urlToReq)
+            request.HTTPMethod = "POST"
+            let info = "test"
+           
+            let bodyData = "name=\(info)"
+            request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
+                (response, data, error) in
+                print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+            }
+        }
     }
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {

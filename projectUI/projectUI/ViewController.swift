@@ -155,20 +155,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     func loadImage(imageUrl: String) -> UIImage{
         let imgUrl = "http://namhees-MacBook-Pro.local:7000/" + imageUrl
         print("ImageURL: ", imgUrl)
-//        let urlStr: NSString = imgUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-        
-//        let urlStr: NSString = imgUrl.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-//        let urlStr: NSString = imgUrl.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacter‌​Set())
-        let urlStr : NSString = imgUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-//        print("Picture URL: ", urlStr)
-//        let pictureURL: NSURL = NSURL(string: urlStr as String)!
+        let urlStr: NSString = imgUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         let pictureURL = NSURL(string: urlStr as String)
+        print("pictureURL: ", pictureURL!)
         if let imageData = NSData(contentsOfURL: pictureURL!){
-            dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                return UIImage(data: imageData)
-            })
+            return UIImage(data: imageData)!
         }
         return UIImage(named: defaultImage)!
+        
+        
+       /* let urlStr: NSString = imgUrl.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let urlStr: NSString = imgUrl.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacter‌​Set())
+        let urlStr : NSString = imgUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        print("Picture URL: ", urlStr)
+        let pictureURL: NSURL = NSURL(string: urlStr as String)!
+        let urlStr = "http://namhees-macbook-pro.local:7000/requestImages/test1.jpg" */
+        
     }
     
     //table view stuffs
