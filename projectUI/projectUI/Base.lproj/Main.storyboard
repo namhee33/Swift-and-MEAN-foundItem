@@ -63,7 +63,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pao-pj-RF2">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noImageFound.png" translatesAutoresizingMaskIntoConstraints="NO" id="pao-pj-RF2">
                                                     <rect key="frame" x="8" y="0.0" width="79" height="72"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3h8-Ma-SQr">
@@ -184,7 +184,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="COC-ze-DP6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="COC-ze-DP6">
                                 <rect key="frame" x="16" y="72" width="135" height="135"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="135" id="5cc-B3-dvc"/>
@@ -398,4 +398,8 @@
             <point key="canvasLocation" x="1213" y="399"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="noImageFound.png" width="220" height="220"/>
+        <image name="uploadImage.png" width="225" height="225"/>
+    </resources>
 </document>

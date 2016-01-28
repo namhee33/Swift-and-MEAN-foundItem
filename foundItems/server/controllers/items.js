@@ -32,11 +32,7 @@ module.exports = (function(){
 					if(err){
 						console.log(err);
 					}else{
-						Item.find({}, function(err, results){
-							if(err){
-								console.log(err);
-							}
-						})
+						res.json("done");
 					}
 				})
 			 });
@@ -55,7 +51,7 @@ module.exports = (function(){
 		  		if(err) {console.log(err);}
 		  		console.log("Saved????", saved);
 
-				var foundData = {storeName: req.body.storeName, price: req.body.price, size: req.body.size, detail: req.body.detail, foundDate: new Date(), locationX: req.body.locationX, locationY: req.body.locationY}
+				var foundData = {storeName: req.body.storeName, price: req.body.price, detail: req.body.detail, foundDate: new Date(), locationX: req.body.locationX, locationY: req.body.locationY}
 				//@@@@@ have to get from req.body.iid
 				var iid = "56a824fda8584898576552a4"
 

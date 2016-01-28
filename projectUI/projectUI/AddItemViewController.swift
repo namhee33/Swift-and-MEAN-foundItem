@@ -11,10 +11,11 @@ import UIKit
 class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
      weak var cancelButtonDelegate: CancelButtonDelegate?
+     weak var doneButtonDelegate: DoneButtonDelegate?
     
     // saved by MainView
-    var myLocationX = 3.24
-    var myLocationY = 3.24
+    var myLocationX = 0.0
+    var myLocationY = 0.0
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -38,7 +39,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
    
     
     @IBAction func doneBtnPressed(sender: UIBarButtonItem) {
+        
         postRequest()
+        
     }
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
@@ -50,8 +53,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        imageView.layer.borderColor = UIColor.grayColor().CGColor
-        imageView.backgroundColor = UIColor.blueColor()
+//        imageView.layer.borderColor = UIColor.grayColor().CGColor
+//        imageView.backgroundColor = UIColor.blueColor()
         detailTextView.layer.borderWidth = 1
         detailTextView.layer.borderColor = UIColor.grayColor().CGColor
     }
@@ -78,7 +81,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         //        let request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.1.152:7000/items")!)
 //        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:7000/items")!)
         
-         let request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.1.152:7000/items")!)  //Dojo
+         let request = NSMutableURLRequest(URL: NSURL(string: "http://namhees-MacBook-Pro.local:7000/items")!)  //Dojo
         request.HTTPMethod = "POST"
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -99,24 +102,22 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         let params = ["image":[ "content_type": "image/jpeg", "filename":"img.jpg", "file_data": base64String], "location":locate, "itemName": iName, "detail": details, "userName": uName, "locationX": myLocationX, "locationY": myLocationY]
         
         
-        
         do{
             request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions(rawValue: 0))
         }catch let error as NSError{
             print("jSon error: \(error.localizedDescription)")
         }
-        
-        
-        
-        
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            print("Image/Post has been successfully saved into the DB")
-            
-        }
-        task.resume()
+
+        dispatch_async(dispatch_get_main_queue(), {
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
+                
+                print("Image/Post has been successfully saved into the DB")
+                self.doneButtonDelegate?.doneButtonPressedFrom(self)
+                
+            }
+            task.resume()
+        })
         
     }
 
