@@ -9,7 +9,7 @@
 import UIKit
 
 
-class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, GIDSignInDelegate, GIDSignInUIDelegate {
     
      weak var cancelButtonDelegate: CancelButtonDelegate?
 
@@ -18,6 +18,9 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     // saved by MainView
     var myLocationX = 0.0
     var myLocationY = 0.0
+    var signedEmail = "test"
+   
+    @IBOutlet weak var signInNameLabel: UILabel!
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -25,6 +28,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var itemNameTextField: UITextField!
     
     @IBOutlet weak var locationTextField: UITextField!
+    
+    @IBOutlet weak var googleSignView: GIDSignInButton!
     
     
     
@@ -44,7 +49,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         
         postRequest()
-        emailRequest()
+     
         
     }
     
@@ -57,15 +62,19 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        // for Google SingIn
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
 
-//        imageView.layer.borderColor = UIColor.grayColor().CGColor
-//        imageView.backgroundColor = UIColor.blueColor()
 
         detailTextView.layer.borderWidth = 1
         detailTextView.layer.borderColor = UIColor.grayColor().CGColor
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -75,19 +84,19 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
-    func emailRequest(){
-        if let urlToReq = NSURL(string: hInfo+"emailMe"){
-            let request: NSMutableURLRequest = NSMutableURLRequest(URL: urlToReq)
-            request.HTTPMethod = "POST"
-            
-            let bodyData = "name=namhee"
-            request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
-                (response, data, error) in
-                print("email done!")
-            }
-        }
-    }
+//    func emailRequest(){
+//        if let urlToReq = NSURL(string: hInfo+"emailMe"){
+//            let request: NSMutableURLRequest = NSMutableURLRequest(URL: urlToReq)
+//            request.HTTPMethod = "POST"
+//            
+//            let bodyData = "name=namhee"
+//            request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
+//            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
+//                (response, data, error) in
+//                print("email done!")
+//            }
+//        }
+//    }
     
     func postRequest()
     {
@@ -96,7 +105,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         let locate = locationTextField.text!
         let details = detailTextView.text!
         let iName = itemNameTextField.text!
-        let uName = "namhee"
+        var uName = ""
         
          let request = NSMutableURLRequest(URL: NSURL(string: hInfo+"items")!)  //Dojo
 
@@ -116,7 +125,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)) // encode the image
         
-        
+        uName = signedEmail
+        print("post:::: ", uName)
         
         let err: NSError? = nil
         
@@ -142,6 +152,40 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         })
         
     }
+    
+    
+    func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
+        //        myActivityIndicator.stopAnimating()
+    }
+    
+    // Present a view that prompts the user to sign in with Google
+    func signIn(signIn: GIDSignIn!, presentViewController viewController: UIViewController!) {
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    // Dismiss the "Sign in with Google" view
+    func signIn(signIn: GIDSignIn!, dismissViewController viewController: UIViewController!) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+        withError error: NSError!) {
+            if (error == nil) {
+                // Perform any operations on signed in user here.
+                let userId = user.userID                  // For client-side use only!
+                let idToken = user.authentication.idToken // Safe to send to the server
+                let name = user.profile.name
+                signedEmail = user.profile.email!
+                print("Email: ", signedEmail)
+
+                self.navigationItem.title = name!
+                googleSignView.hidden = true
+                
+            } else {
+                print("\(error.localizedDescription)")
+            }
+    }
+
 
 }
 

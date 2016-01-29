@@ -657,6 +657,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LHI-aF-pJR" customClass="GIDSignInButton">
+                                <rect key="frame" x="214" y="72" width="91" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXC-56-DbB">
+                                <rect key="frame" x="323" y="208" width="83" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -668,6 +676,7 @@
                             <constraint firstItem="qPg-nd-gR5" firstAttribute="top" secondItem="U71-Ao-d7L" secondAttribute="bottom" constant="8" symbolic="YES" id="9hW-ME-tg9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gsc-En-gne" secondAttribute="trailing" id="AcJ-GF-0fL"/>
                             <constraint firstItem="U71-Ao-d7L" firstAttribute="leading" secondItem="BZA-8E-L7E" secondAttribute="leadingMargin" id="B3e-MU-R8H"/>
+                            <constraint firstItem="LHI-aF-pJR" firstAttribute="top" secondItem="wfq-zY-ekm" secondAttribute="bottom" id="DQt-iC-Kaa"/>
                             <constraint firstItem="U71-Ao-d7L" firstAttribute="bottom" secondItem="Gsc-En-gne" secondAttribute="bottom" id="F6R-Xg-y7g"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gsc-En-gne" secondAttribute="trailing" constant="3" id="FUI-xH-EkY"/>
                             <constraint firstItem="A4W-no-ic9" firstAttribute="top" secondItem="QMO-QX-wQC" secondAttribute="bottom" id="GN2-Eu-Wtc"/>
@@ -692,6 +701,7 @@
                             <constraint firstItem="A4W-no-ic9" firstAttribute="centerX" secondItem="BZA-8E-L7E" secondAttribute="centerX" id="jB0-bF-ArY"/>
                             <constraint firstItem="yhR-qy-nRI" firstAttribute="top" secondItem="rZ7-I4-FOZ" secondAttribute="bottom" constant="20" id="jTM-bc-32q"/>
                             <constraint firstItem="eOG-eH-Thi" firstAttribute="top" relation="lessThanOrEqual" secondItem="COC-ze-DP6" secondAttribute="bottom" constant="47" id="jhd-sX-1zA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LHI-aF-pJR" secondAttribute="trailing" id="kRL-uo-SZt"/>
                             <constraint firstItem="rZ7-I4-FOZ" firstAttribute="centerX" secondItem="BZA-8E-L7E" secondAttribute="centerX" id="l8i-UD-UZp"/>
                             <constraint firstAttribute="leadingMargin" secondItem="qPg-nd-gR5" secondAttribute="leading" id="m6s-ym-Pkw"/>
                             <constraint firstItem="qPg-nd-gR5" firstAttribute="top" secondItem="U71-Ao-d7L" secondAttribute="bottom" constant="8" symbolic="YES" id="mFY-7h-4jH"/>
@@ -751,6 +761,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="detailTextView" destination="rZ7-I4-FOZ" id="VGy-VK-ZEE"/>
+                        <outlet property="googleSignView" destination="LHI-aF-pJR" id="XJR-ZD-4ce"/>
                         <outlet property="imageView" destination="COC-ze-DP6" id="lBz-Ne-m2A"/>
                         <outlet property="itemNameTextField" destination="Gsc-En-gne" id="ILy-7W-n8H"/>
                         <outlet property="locationTextField" destination="eOG-eH-Thi" id="sEF-Yl-YjF"/>

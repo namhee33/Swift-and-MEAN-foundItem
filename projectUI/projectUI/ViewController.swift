@@ -80,8 +80,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        dispatch_async(dispatch_get_main_queue(), {
+        
+               dispatch_async(dispatch_get_main_queue(), {
             self.httpGetRequest()
         })
         
