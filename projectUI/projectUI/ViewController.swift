@@ -124,12 +124,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         
         mapView(map, viewForAnnotation: annotation)
         
-        
-        
-
-        
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? Pin {
@@ -188,7 +188,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             cell.itemImage.image = self.loadImage(item.imageUrl)
         })
         cell.zipCodeLabel.text = item.location
-        cell.detailsLabel.text = item.detail
+        cell.detailsLabel.text = item.itemName
         // ******* ?????? have to chaange date format
         cell.dateListedLabel.text = String(item.createdAt)
         cell.numberFoundLabel.text = String(item.founds.count)
@@ -256,27 +256,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         removeAnnotations()
-        var annotations = [Array]
+        foundA = []
+        let length = tableItems[indexPath.row].founds.count
+//        addItemAnnotation(items[indexPath.row])
         for var i = 0; i < tableItems[indexPath.row].founds.count; ++i {
+            
             let curr_X = tableItems[indexPath.row].founds[i]["locationX"] as! Double
             let curr_Y = tableItems[indexPath.row].founds[i]["locationY"] as! Double
             let storeName = tableItems[indexPath.row].founds[i]["storeName"] as! String
-            let annotation = (title: storeName, coordinate: CLLocationCoordinate2D(latitude: curr_X, longitude: curr_Y))
-            annotations.push(annotation)
+            let randX = Double(arc4random_uniform(UInt32(length)) + 2) * 0.01
+            let randY = Double(arc4random_uniform(UInt32(length)) + 2) * 0.01
+            addFoundAnnotation(curr_X+randX, y: curr_Y+randY, title: storeName)
+
         }
-        self.map.addAnnotations(annotations)
+        self.map.addAnnotations(foundA)
+        
         
         
     }
     
+    var foundA = [MKPointAnnotation]()
+    
     func addFoundAnnotation(x: Double, y: Double, title: String) {
+        print("X, Y in addFooun", x, y)
         let foundAnnotation = MKPointAnnotation()
-        let foundLocation2D = CLLocationCoordinate2D(latitude: x, longitude: y)
+        let foundLocation2D = CLLocationCoordinate2D(latitude: y, longitude: x)
         foundAnnotation.coordinate = foundLocation2D
         foundAnnotation.title = title
-        print(foundAnnotation)
-        
-        self.map.addAnnotation(foundAnnotation)
+        print("added Found: ", foundAnnotation.coordinate.latitude)
+        print("added Found: ", foundAnnotation.title)
+        foundA.append(foundAnnotation)
+//        self.map.addAnnotation(foundAnnotation)
+//        self.map.selectAnnotation(foundAnnotation, animated: true)
     }
     
     func addItemAnnotation(item: Item){

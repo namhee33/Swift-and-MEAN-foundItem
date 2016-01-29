@@ -9,4 +9,5 @@
 import Foundation
 
 //var hInfo = "http://namhees-MacBook-Pro.local:7000/"
-var hInfo = "http://Sarahs-MacBook-Pro.local:7000/"
+//var hInfo = "http://Sarahs-MacBook-Pro.local:7000/"
+var hInfo = "http://192.168.1.153:7000/"

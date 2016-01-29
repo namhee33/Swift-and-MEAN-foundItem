@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		85DC913D37D4F3FDD6807329 /* Pods_projectUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B327E9BB79CE9A186B64FF8 /* Pods_projectUI.framework */; };
-		CAA0BB5CFC4987FD53082B05 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A7F04ED209B675B062A30E /* Pods.framework */; };
 		F50E5C561C5827B000932B8A /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E5C551C5827B000932B8A /* Pin.swift */; };
 		F5697CE61C5801A700E61E16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5697CE51C5801A700E61E16 /* AppDelegate.swift */; };
 		F5697CE81C5801A700E61E16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5697CE71C5801A700E61E16 /* ViewController.swift */; };
@@ -32,10 +31,10 @@
 		F6D139D11C5B02FB00DE3B31 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D139D01C5B02FB00DE3B31 /* camera.png */; };
 		F6D139D31C5B66FD00DE3B31 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F6D139D21C5B66FD00DE3B31 /* Podfile */; };
 		F6D139D51C5B6A1100DE3B31 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6D139D41C5B6A1100DE3B31 /* GoogleService-Info.plist */; };
+		F6D139DD1C5C02F800DE3B31 /* UberRides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D139DC1C5C02F800DE3B31 /* UberRides.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04A7F04ED209B675B062A30E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BB4E72761B9246B35F7621C /* Pods-projectUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-projectUI/Pods-projectUI.release.xcconfig"; sourceTree = "<group>"; };
 		413695A36E075017D4094936 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7896E5CB6AB1521ED4239D06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		F6D139D21C5B66FD00DE3B31 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F6D139D41C5B6A1100DE3B31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6D139D61C5B6CAB00DE3B31 /* projectUI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "projectUI-Bridging-Header.h"; sourceTree = "<group>"; };
+		F6D139DC1C5C02F800DE3B31 /* UberRides.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UberRides.framework; path = "Pods/../build/Debug-iphoneos/UberRides.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAA0BB5CFC4987FD53082B05 /* Pods.framework in Frameworks */,
+				F6D139DD1C5C02F800DE3B31 /* UberRides.framework in Frameworks */,
 				85DC913D37D4F3FDD6807329 /* Pods_projectUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,7 +85,7 @@
 		576A1848AF168BD6992515D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				04A7F04ED209B675B062A30E /* Pods.framework */,
+				F6D139DC1C5C02F800DE3B31 /* UberRides.framework */,
 				9B327E9BB79CE9A186B64FF8 /* Pods_projectUI.framework */,
 			);
 			name = Frameworks;
@@ -181,6 +181,7 @@
 				F5697CE01C5801A700E61E16 /* Resources */,
 				FF795783B3F68F1CC6F4D7AE /* Embed Pods Frameworks */,
 				50B4C58C7D632A9B988BDFC8 /* Copy Pods Resources */,
+				F6D139DB1C5C012B00DE3B31 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -203,7 +204,7 @@
 				TargetAttributes = {
 					F5697CE11C5801A700E61E16 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 5ZN968QNY6;
+						DevelopmentTeam = V4LS36MR3T;
 					};
 				};
 			};
@@ -273,6 +274,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-projectUI/Pods-projectUI-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F6D139DB1C5C012B00DE3B31 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/UberRides.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 		FF795783B3F68F1CC6F4D7AE /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -428,6 +443,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = projectUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sarsherman.projectUI;
@@ -447,6 +466,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = projectUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sarsherman.projectUI;

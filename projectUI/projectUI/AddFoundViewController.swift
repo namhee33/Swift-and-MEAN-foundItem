@@ -46,6 +46,10 @@ class AddFoundViewController: UIViewController,UIImagePickerControllerDelegate, 
         
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
     
     @IBAction func doneBtnPressed(sender: UIBarButtonItem) {
         
