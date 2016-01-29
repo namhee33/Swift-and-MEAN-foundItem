@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
      weak var cancelButtonDelegate: CancelButtonDelegate?
@@ -83,12 +84,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         let iName = itemNameTextField.text!
         let uName = "namhee"
         
-        
-        //        let request = NSMutableURLRequest(URL: NSURL(string: "http://192.168.1.152:7000/items")!)
-//        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:7000/items")!)
-        
-
-         let request = NSMutableURLRequest(URL: NSURL(string: "http://Sarahs-MacBook-Pro.local:7000/items")!)  //Dojo
+         let request = NSMutableURLRequest(URL: NSURL(string: hInfo+"items")!)  //Dojo
 
         request.HTTPMethod = "POST"
         
@@ -96,10 +92,13 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
+
         
+        let myPicture = imageView.image
         
-        let imageData = UIImageJPEGRepresentation(imageView.image!, 0.6)
+        let myThumb1 = myPicture!.resize(0.1)
         
+        let imageData = UIImageJPEGRepresentation(myThumb1, 0.6)
         
         let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0)) // encode the image
         
@@ -131,3 +130,4 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 
 }
+

@@ -19,10 +19,15 @@
 		F5697D001C581DB800E61E16 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5697CFF1C581DB800E61E16 /* Item.swift */; };
 		F56FAB761C5AB959000EBE92 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB751C5AB959000EBE92 /* ItemDetailViewController.swift */; };
 		F56FAB781C5AB963000EBE92 /* ReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56FAB771C5AB962000EBE92 /* ReplyCell.swift */; };
-		F56FAB7D1C5ABD35000EBE92 /* noImageFound.png in Resources */ = {isa = PBXBuildFile; fileRef = F56FAB7B1C5ABD35000EBE92 /* noImageFound.png */; };
-		F56FAB7E1C5ABD35000EBE92 /* uploadImage.png in Resources */ = {isa = PBXBuildFile; fileRef = F56FAB7C1C5ABD35000EBE92 /* uploadImage.png */; };
 		F645E6F01C597C710097166E /* Found.swift in Sources */ = {isa = PBXBuildFile; fileRef = F645E6EF1C597C710097166E /* Found.swift */; };
 		F645E6F21C5992A00097166E /* DoneButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F645E6F11C5992A00097166E /* DoneButtonProtocol.swift */; };
+		F6D139C31C5AC5DA00DE3B31 /* noImageFound.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D139C11C5AC5DA00DE3B31 /* noImageFound.png */; };
+		F6D139C41C5AC5DA00DE3B31 /* uploadImage.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D139C21C5AC5DA00DE3B31 /* uploadImage.png */; };
+		F6D139C81C5ACDCF00DE3B31 /* HostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D139C71C5ACDCF00DE3B31 /* HostInfo.swift */; };
+		F6D139CA1C5AE40E00DE3B31 /* AddFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D139C91C5AE40E00DE3B31 /* AddFoundViewController.swift */; };
+		F6D139CD1C5AEF4D00DE3B31 /* FoundCancelButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D139CC1C5AEF4D00DE3B31 /* FoundCancelButtonDelegate.swift */; };
+		F6D139CF1C5AEF6700DE3B31 /* FoundDoneButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D139CE1C5AEF6700DE3B31 /* FoundDoneButtonDelegate.swift */; };
+		F6D139D11C5B02FB00DE3B31 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D139D01C5B02FB00DE3B31 /* camera.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +45,15 @@
 		F5697CFF1C581DB800E61E16 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F56FAB751C5AB959000EBE92 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		F56FAB771C5AB962000EBE92 /* ReplyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyCell.swift; sourceTree = "<group>"; };
-		F56FAB7B1C5ABD35000EBE92 /* noImageFound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noImageFound.png; path = ../../../../Downloads/noImageFound.png; sourceTree = "<group>"; };
-		F56FAB7C1C5ABD35000EBE92 /* uploadImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uploadImage.png; path = ../../../../Downloads/uploadImage.png; sourceTree = "<group>"; };
 		F645E6EF1C597C710097166E /* Found.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Found.swift; sourceTree = "<group>"; };
 		F645E6F11C5992A00097166E /* DoneButtonProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneButtonProtocol.swift; sourceTree = "<group>"; };
+		F6D139C11C5AC5DA00DE3B31 /* noImageFound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImageFound.png; sourceTree = "<group>"; };
+		F6D139C21C5AC5DA00DE3B31 /* uploadImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadImage.png; sourceTree = "<group>"; };
+		F6D139C71C5ACDCF00DE3B31 /* HostInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostInfo.swift; sourceTree = "<group>"; };
+		F6D139C91C5AE40E00DE3B31 /* AddFoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoundViewController.swift; sourceTree = "<group>"; };
+		F6D139CC1C5AEF4D00DE3B31 /* FoundCancelButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundCancelButtonDelegate.swift; sourceTree = "<group>"; };
+		F6D139CE1C5AEF6700DE3B31 /* FoundDoneButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundDoneButtonDelegate.swift; sourceTree = "<group>"; };
+		F6D139D01C5B02FB00DE3B31 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,7 @@
 		F5697CE41C5801A700E61E16 /* projectUI */ = {
 			isa = PBXGroup;
 			children = (
+				F6D139CB1C5AED3C00DE3B31 /* protocol */,
 				F645E6F31C5997650097166E /* supportFiles */,
 				F5697CE51C5801A700E61E16 /* AppDelegate.swift */,
 				F5697CE71C5801A700E61E16 /* ViewController.swift */,
@@ -85,13 +96,13 @@
 				F5697CEE1C5801A700E61E16 /* LaunchScreen.storyboard */,
 				F5697CF11C5801A700E61E16 /* Info.plist */,
 				F5697CF91C580E9500E61E16 /* ItemCell.swift */,
-				F5697CFB1C5819AA00E61E16 /* Protocols.swift */,
 				F5697CFF1C581DB800E61E16 /* Item.swift */,
 				F50E5C551C5827B000932B8A /* Pin.swift */,
 				F645E6EF1C597C710097166E /* Found.swift */,
-				F645E6F11C5992A00097166E /* DoneButtonProtocol.swift */,
 				F56FAB751C5AB959000EBE92 /* ItemDetailViewController.swift */,
 				F56FAB771C5AB962000EBE92 /* ReplyCell.swift */,
+				F6D139C71C5ACDCF00DE3B31 /* HostInfo.swift */,
+				F6D139C91C5AE40E00DE3B31 /* AddFoundViewController.swift */,
 			);
 			path = projectUI;
 			sourceTree = "<group>";
@@ -99,10 +110,22 @@
 		F645E6F31C5997650097166E /* supportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				F56FAB7B1C5ABD35000EBE92 /* noImageFound.png */,
-				F56FAB7C1C5ABD35000EBE92 /* uploadImage.png */,
+				F6D139D01C5B02FB00DE3B31 /* camera.png */,
+				F6D139C11C5AC5DA00DE3B31 /* noImageFound.png */,
+				F6D139C21C5AC5DA00DE3B31 /* uploadImage.png */,
 			);
 			name = supportFiles;
+			sourceTree = "<group>";
+		};
+		F6D139CB1C5AED3C00DE3B31 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F645E6F11C5992A00097166E /* DoneButtonProtocol.swift */,
+				F5697CFB1C5819AA00E61E16 /* Protocols.swift */,
+				F6D139CC1C5AEF4D00DE3B31 /* FoundCancelButtonDelegate.swift */,
+				F6D139CE1C5AEF6700DE3B31 /* FoundDoneButtonDelegate.swift */,
+			);
+			name = protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +160,7 @@
 				TargetAttributes = {
 					F5697CE11C5801A700E61E16 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 5ZN968QNY6;
+						DevelopmentTeam = V4LS36MR3T;
 					};
 				};
 			};
@@ -167,8 +190,9 @@
 				F5697CF01C5801A700E61E16 /* LaunchScreen.storyboard in Resources */,
 				F5697CED1C5801A700E61E16 /* Assets.xcassets in Resources */,
 				F5697CEB1C5801A700E61E16 /* Main.storyboard in Resources */,
-				F56FAB7D1C5ABD35000EBE92 /* noImageFound.png in Resources */,
-				F56FAB7E1C5ABD35000EBE92 /* uploadImage.png in Resources */,
+				F6D139C31C5AC5DA00DE3B31 /* noImageFound.png in Resources */,
+				F6D139D11C5B02FB00DE3B31 /* camera.png in Resources */,
+				F6D139C41C5AC5DA00DE3B31 /* uploadImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,11 +205,15 @@
 			files = (
 				F56FAB761C5AB959000EBE92 /* ItemDetailViewController.swift in Sources */,
 				F645E6F21C5992A00097166E /* DoneButtonProtocol.swift in Sources */,
+				F6D139CA1C5AE40E00DE3B31 /* AddFoundViewController.swift in Sources */,
 				F50E5C561C5827B000932B8A /* Pin.swift in Sources */,
 				F5697CE81C5801A700E61E16 /* ViewController.swift in Sources */,
+				F6D139CF1C5AEF6700DE3B31 /* FoundDoneButtonDelegate.swift in Sources */,
+				F6D139CD1C5AEF4D00DE3B31 /* FoundCancelButtonDelegate.swift in Sources */,
 				F645E6F01C597C710097166E /* Found.swift in Sources */,
 				F5697CFE1C5819F300E61E16 /* AddItemViewController.swift in Sources */,
 				F5697CE61C5801A700E61E16 /* AppDelegate.swift in Sources */,
+				F6D139C81C5ACDCF00DE3B31 /* HostInfo.swift in Sources */,
 				F5697CFA1C580E9500E61E16 /* ItemCell.swift in Sources */,
 				F5697D001C581DB800E61E16 /* Item.swift in Sources */,
 				F5697CFC1C5819AA00E61E16 /* Protocols.swift in Sources */,

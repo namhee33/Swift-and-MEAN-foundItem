@@ -42,8 +42,9 @@ module.exports = (function(){
 			//save image on the server
 			//then update the Item with iid
 			var date_fName = new Date();
+			console.log("addFound Data: ", req.body.iid);
 		  	var fName = "./client/foundImages/"+date_fName.toString();
-
+		  	var cName = "foundImages/" + date_fName.toString() + ".jpg";
 
 		  	var options = {filename: fName};
 		  	var imageData = new Buffer(req.body.image.file_data, 'base64');
@@ -51,9 +52,9 @@ module.exports = (function(){
 		  		if(err) {console.log(err);}
 		  		console.log("Saved????", saved);
 
-				var foundData = {storeName: req.body.storeName, price: req.body.price, detail: req.body.detail, foundDate: new Date(), locationX: req.body.locationX, locationY: req.body.locationY}
+				var foundData = {imageUrl: cName, storeName: req.body.storeName, price: req.body.price, detail: req.body.detail, foundDate: new Date(), locationX: req.body.locationX, locationY: req.body.locationY}
 				//@@@@@ have to get from req.body.iid
-				var iid = "56a824fda8584898576552a4"
+				var iid = req.body.iid
 
 				Item.findOneAndUpdate({_id: iid}, {$push: {founds: {$each: [foundData]}}}, function(err, result){
 					if(err){

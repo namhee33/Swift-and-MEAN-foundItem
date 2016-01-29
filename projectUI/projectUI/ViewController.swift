@@ -29,6 +29,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     var tempTable = [Item]()
     
+  
+    
+    var selected_idx = 0
+    
 
     var currentLocation: CLLocation?
     
@@ -42,7 +46,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     @IBOutlet weak var searchOutlet: UISearchBar!
     
     @IBAction func foundButtonPressed(sender: UIButton) {
-        print("heeeerrreee")
+//        print("heeeerrreee")
         if tableIsFoundItems == false {
             tableItems = []
             for var i = 0; i < items.count; ++i {
@@ -137,7 +141,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
                 view.pinTintColor = annotation.pinColor()
-                print(view.pinTintColor)
+//                print(view.pinTintColor)
             }
             return view
         }
@@ -157,23 +161,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
   
 
     func loadImage(imageUrl: String) -> UIImage{
-        let imgUrl = "http://Sarahs-MacBook-Pro.local:7000/" + imageUrl
-        print("ImageURL: ", imgUrl)
+        let imgUrl = hInfo + imageUrl
+       
         let urlStr: NSString = imgUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         let pictureURL = NSURL(string: urlStr as String)
-        print("pictureURL: ", pictureURL!)
+        
         if let imageData = NSData(contentsOfURL: pictureURL!){
             return UIImage(data: imageData)!
         }
         return UIImage(named: defaultImage)!
-        
-        
-       /* let urlStr: NSString = imgUrl.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        let urlStr: NSString = imgUrl.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacter‌​Set())
-        let urlStr : NSString = imgUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-        print("Picture URL: ", urlStr)
-        let pictureURL: NSURL = NSURL(string: urlStr as String)!
-        let urlStr = "http://namhees-macbook-pro.local:7000/requestImages/test1.jpg" */
         
     }
 
@@ -205,6 +201,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     //segue
     
     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        
+        selected_idx = indexPath.row
+        print("performSegue: ", selected_idx)
         performSegueWithIdentifier("DetailsSegue", sender: tableView.cellForRowAtIndexPath(indexPath))
     }
     
@@ -223,12 +222,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             let navigationController = segue.destinationViewController as! UINavigationController
             let controller = navigationController.topViewController as! ItemDetailsViewController
             controller.cancelButtonDelegate = self
+            controller.doneButtonDelegate = self
+            
+            controller.iid = tableItems[selected_idx].iid
+            controller.found = tableItems[selected_idx].founds
+            controller.item = tableItems[selected_idx]
+            print("prepare segue: \(controller.item)")
+            controller.myLocationX = (currentLocation?.coordinate.longitude)!
+            controller.myLocationY = (currentLocation?.coordinate.latitude)!
         }
-        
-
-
-       
-
         
     }
 
@@ -240,29 +242,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
 
     func doneButtonPressedFrom(controller: UIViewController){
-        dispatch_async(dispatch_get_main_queue(), {
-            self.httpGetRequest()
-        })
-//        tableItems = []
-//        if tableIsFoundItems == false {
-//            
-//            for var i = 0; i < items.count; ++i {
-//                if items[i].founds.count  == 0 {
-//                    tableItems.append(items[i])
-//                }
-//            }
-//            
-//            tableIsFoundItems = false
-//        }else{
-//            for var i = 0; i < items.count; ++i {
-//                if items[i].founds.count  != 0 {
-//                    tableItems.append(items[i])
-//                }
-//            }
-//            
-//            tableIsFoundItems = true
-//        }
-//        tableView.reloadData()
+        
+            httpGetRequest()
+        
+        print("doneButton in Main: >>>>>>>>>>>")
         dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -305,10 +288,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     //search functions
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        print(tableItems)
+//        print(tableItems)
         
         tempTable = tableItems
-        print(tempTable)
+//        print(tempTable)
         tableItems = []
         searchActive = true;
     }
@@ -318,7 +301,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        print("hi")
+//        print("hi")
         searchOutlet.text! = ""
         dismissKeyboard()
         tableItems = tempTable
@@ -332,7 +315,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        print("here")
+//        print("here")
         tableItems = items.filter({ (Item) -> Bool in
 
             let tmp: NSString = NSString(string: Item.itemName)
@@ -352,9 +335,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
 
     func httpGetRequest(){
         items = []
-        //        if let urlToReq = NSURL(string: "http://localhost:7000/items"){
-//        if let urlToReq = NSURL(string: "http://192.168.1.152:7000/items"){  //Dojo
-        if let urlToReq = NSURL(string: "http://Sarahs-MacBook-Pro.local:7000/items"){  //Home
+        
+          if let urlToReq = NSURL(string: hInfo+"items"){//Home
             
             if let packagedData = NSData(contentsOfURL: urlToReq){
                 if let unpackagedData = parseJSON(packagedData){
@@ -373,7 +355,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
                         //change Date
                         let df = NSDateFormatter()
                         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                        print("createdDate: ", createdDate)
+//                        print("createdDate: ", createdDate)
                         
                         let createdAtShort = df.dateFromString(createdDate)
                         df.dateFormat = "EEE MMM d"
@@ -383,13 +365,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
                         
                         self.items.append(item)
                         
-                        print("\(iid), \(itemName), \(imageUrl)")
+//                        print("\(iid), \(itemName), \(imageUrl)")
                         
                         if newItem["founds"] != nil {
                             let newFounds = newItem["founds"] as! NSArray
                             if newFounds.count != 0 {
                                 
                                 for fItem in newFounds {
+                                    
                                     item.founds.append(fItem as! NSDictionary)
                                 }
                             }
@@ -409,6 +392,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     func updateTable(){
         tableItems = []
+        print("Update Table after http request")
         if tableIsFoundItems == false {
 
             for var i = 0; i < items.count; ++i {
