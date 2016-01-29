@@ -44,7 +44,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         
         postRequest()
-        //email Test
+        emailRequest()
         
     }
     
@@ -73,6 +73,20 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
+    }
+    
+    func emailRequest(){
+        if let urlToReq = NSURL(string: hInfo+"emailMe"){
+            let request: NSMutableURLRequest = NSMutableURLRequest(URL: urlToReq)
+            request.HTTPMethod = "POST"
+            
+            let bodyData = "name=namhee"
+            request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()){
+                (response, data, error) in
+                print("email done!")
+            }
+        }
     }
     
     func postRequest()
