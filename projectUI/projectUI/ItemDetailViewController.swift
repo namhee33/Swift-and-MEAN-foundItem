@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UberRides
 
 class ItemDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FoundDoneButtonDelegate, FoundCancelButtonDelegate {
     
@@ -19,6 +20,12 @@ class ItemDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     weak var cancelButtonDelegate: CancelButtonDelegate?
     weak var doneButtonDelegate: DoneButtonDelegate?
 
+    
+    var itemLocationX = 0.0
+    var itemLocationY = 0.0
+    
+    @IBOutlet weak var uberButton: UIView!
+    
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
         cancelButtonDelegate?.cancelButtonPressedFrom(self)
@@ -54,6 +61,37 @@ class ItemDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         replyTableView.dataSource = self
         replyTableView.delegate = self
         print("viewLoading in detail view: ", iid)
+        
+        
+        view.addSubview(uberButton)
+        let button = RequestButton()
+        uberButton.addSubview(button)
+        
+        
+        
+        button.setPickupLocation(latitude: String(myLocationX), longitude: String(myLocationY))
+        button.setDropoffLocation(latitude: String(itemLocationX), longitude: String(itemLocationY))
+        //button.setDropoffLocation(latitude: "47.00000", longitude: "-122.000000")
+        
+        centerButton(forButton: button, inView: uberButton)
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        itemLocationX = found[indexPath.row]["locationX"] as! Double
+        itemLocationY = found[indexPath.row]["locationY"] as! Double
+        
+    }
+    
+    func centerButton(forButton button: RequestButton, inView: UIView) {
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        let horizontalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: inView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: inView, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+        
+        // add constraints to view
+        inView.addConstraints([horizontalConstraint, verticalConstraint])
         
     }
     

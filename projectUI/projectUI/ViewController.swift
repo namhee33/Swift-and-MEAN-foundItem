@@ -13,6 +13,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
 class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, CancelButtonDelegate, DoneButtonDelegate, MKMapViewDelegate, UISearchBarDelegate {
     
     var locationManager: CLLocationManager!
@@ -123,6 +124,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         
         mapView(map, viewForAnnotation: annotation)
         
+        
+        
+
         
     }
     
@@ -252,10 +256,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         removeAnnotations()
-        addItemAnnotation(tableItems[indexPath.row])
+        var annotations = [Array]
+        for var i = 0; i < tableItems[indexPath.row].founds.count; ++i {
+            let curr_X = tableItems[indexPath.row].founds[i]["locationX"] as! Double
+            let curr_Y = tableItems[indexPath.row].founds[i]["locationY"] as! Double
+            let storeName = tableItems[indexPath.row].founds[i]["storeName"] as! String
+            let annotation = (title: storeName, coordinate: CLLocationCoordinate2D(latitude: curr_X, longitude: curr_Y))
+            annotations.push(annotation)
+        }
+        self.map.addAnnotations(annotations)
+        
         
     }
     
+    func addFoundAnnotation(x: Double, y: Double, title: String) {
+        let foundAnnotation = MKPointAnnotation()
+        let foundLocation2D = CLLocationCoordinate2D(latitude: x, longitude: y)
+        foundAnnotation.coordinate = foundLocation2D
+        foundAnnotation.title = title
+        print(foundAnnotation)
+        
+        self.map.addAnnotation(foundAnnotation)
+    }
     
     func addItemAnnotation(item: Item){
         let itemAnnotation = MKPointAnnotation()

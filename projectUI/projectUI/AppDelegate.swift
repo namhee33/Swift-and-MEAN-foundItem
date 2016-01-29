@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UberRides
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
@@ -21,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         
         GIDSignIn.sharedInstance().delegate = self
+        
+    RidesClient.sharedInstance.configureClientID("VmzigXySYrW2AhAbI8nl5znWfMFajaob")
+        
         return true
     }
 

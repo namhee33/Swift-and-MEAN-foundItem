@@ -24,9 +24,11 @@ PODS:
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
+  - UberRides (0.2.1)
 
 DEPENDENCIES:
   - Google/SignIn
+  - UberRides
 
 SPEC CHECKSUMS:
   Google: 97618e118111b998cce1d8dd1bd98b82301d72db
@@ -37,5 +39,6 @@ SPEC CHECKSUMS:
   GoogleSignIn: 79929b51e6299c69f1197bbd9c7a1367d523ecd8
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
+  UberRides: 0d679bedad24539c2e9aa3d83db95fa229803eb1
 
 COCOAPODS: 0.39.0

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -224,18 +224,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZt-D3-97D">
-                                <rect key="frame" x="111" y="518" width="98" height="30"/>
-                                <color key="backgroundColor" red="0.40146835091166932" green="0.65840238459735745" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="98" id="8Rw-ME-BOJ"/>
-                                    <constraint firstAttribute="height" constant="30" id="f4O-yX-Ytm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Uber">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AO4-Jn-x6l">
                                 <rect key="frame" x="204" y="163.5" width="100" height="20"/>
                                 <constraints>
@@ -362,6 +350,14 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="106" id="wDy-sa-7Hh"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouW-ZQ-vNy">
+                                <rect key="frame" x="83" y="518" width="153" height="42"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="2fd-4b-P16"/>
+                                    <constraint firstAttribute="height" constant="42" id="4XI-L9-Zbq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -369,7 +365,7 @@
                             <constraint firstItem="GLQ-HZ-hzc" firstAttribute="leading" secondItem="gYk-I0-gCG" secondAttribute="trailing" constant="8" symbolic="YES" id="0mE-9q-pN0"/>
                             <constraint firstItem="XhV-Y7-wGb" firstAttribute="top" secondItem="GLQ-HZ-hzc" secondAttribute="bottom" constant="22.5" id="1zI-gc-jWK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NgC-4a-o7m" secondAttribute="trailing" id="3eC-Oc-kqe"/>
-                            <constraint firstItem="CZt-D3-97D" firstAttribute="centerX" secondItem="is2-dO-WHo" secondAttribute="centerX" id="3gW-XP-GOv"/>
+                            <constraint firstItem="ouW-ZQ-vNy" firstAttribute="top" secondItem="NgC-4a-o7m" secondAttribute="bottom" constant="8" id="8RE-CY-aLu"/>
                             <constraint firstItem="XhV-Y7-wGb" firstAttribute="leading" secondItem="gYk-I0-gCG" secondAttribute="trailing" constant="8" symbolic="YES" id="AEh-bx-oxW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TKg-b6-v4s" secondAttribute="trailing" id="CU9-XN-7PM"/>
                             <constraint firstItem="gYk-I0-gCG" firstAttribute="top" secondItem="vRH-1H-W0M" secondAttribute="bottom" constant="8" symbolic="YES" id="JEN-Sv-MSQ"/>
@@ -379,6 +375,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="gYk-I0-gCG" secondAttribute="leading" id="ROh-6H-Bc1"/>
                             <constraint firstItem="nJ1-q0-kPJ" firstAttribute="leading" secondItem="GLQ-HZ-hzc" secondAttribute="trailing" constant="8" symbolic="YES" id="UUx-uO-ugj"/>
                             <constraint firstItem="ioJ-RB-tkU" firstAttribute="top" secondItem="NgC-4a-o7m" secondAttribute="bottom" constant="58" id="Vcq-ua-nuS"/>
+                            <constraint firstItem="ouW-ZQ-vNy" firstAttribute="centerX" secondItem="is2-dO-WHo" secondAttribute="centerX" id="WLz-wq-71e"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AO4-Jn-x6l" secondAttribute="trailing" id="dD8-Qj-1bg"/>
                             <constraint firstItem="TKg-b6-v4s" firstAttribute="bottom" secondItem="XhV-Y7-wGb" secondAttribute="bottom" id="emb-eJ-IRF"/>
                             <constraint firstItem="nJ1-q0-kPJ" firstAttribute="top" secondItem="vRH-1H-W0M" secondAttribute="bottom" constant="13" id="ezg-ud-Awm"/>
@@ -388,7 +385,7 @@
                             <constraint firstItem="AO4-Jn-x6l" firstAttribute="top" secondItem="TKg-b6-v4s" secondAttribute="bottom" constant="8" symbolic="YES" id="lMT-mc-KDR"/>
                             <constraint firstItem="AO4-Jn-x6l" firstAttribute="bottom" secondItem="Rrk-za-m77" secondAttribute="bottom" id="oDo-hb-xVy"/>
                             <constraint firstItem="TKg-b6-v4s" firstAttribute="leading" secondItem="XhV-Y7-wGb" secondAttribute="trailing" constant="8" symbolic="YES" id="uUy-C1-Qw1"/>
-                            <constraint firstItem="ioJ-RB-tkU" firstAttribute="top" secondItem="CZt-D3-97D" secondAttribute="bottom" constant="20" id="y2z-O0-JYY"/>
+                            <constraint firstItem="ioJ-RB-tkU" firstAttribute="top" secondItem="ouW-ZQ-vNy" secondAttribute="bottom" constant="8" id="ufb-tI-Gsf"/>
                             <constraint firstItem="NgC-4a-o7m" firstAttribute="top" secondItem="vRH-1H-W0M" secondAttribute="bottom" constant="127" id="ydj-7J-hip"/>
                         </constraints>
                         <variation key="default">
@@ -417,6 +414,7 @@
                         <outlet property="itemLabel" destination="nJ1-q0-kPJ" id="1fK-EV-eRb"/>
                         <outlet property="replyTableView" destination="NgC-4a-o7m" id="Nia-s1-1bf"/>
                         <outlet property="requestDateLabel" destination="AO4-Jn-x6l" id="frc-aW-xR4"/>
+                        <outlet property="uberButton" destination="ouW-ZQ-vNy" id="wRn-5w-qn3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAy-km-afd" userLabel="First Responder" sceneMemberID="firstResponder"/>
