@@ -1,8 +1,6 @@
 var items = require('./../server/controllers/items.js');
 
-
-module.exports = function(app) {
-	
+module.exports = function(app, passport) {
   app.get('/items', function(req, res) {
   	console.log("index request from client!");
     items.index(req, res);
@@ -16,4 +14,10 @@ module.exports = function(app) {
   	console.log("addFound requested from client!!!");
   	items.addFound(req, res);
   });
+
+  app.post("/signup", passport.authenticate("local-signup"), function(req, res){
+      console.log("RES", res);
+      // res.json({user: req.user});
+    }
+  )
 }

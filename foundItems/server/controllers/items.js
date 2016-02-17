@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Item = mongoose.model('Item');
+var Item = require("../../app/models/item")
 var base64 = require('node-base64-image');
 var Mailgun = require('mailgun-js');
 //Your api key, from Mailgun’s Control Panel
