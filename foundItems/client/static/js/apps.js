@@ -13,6 +13,10 @@ module.config(function($routeProvider){
 		templateUrl: "static/partials/signup.html",
 		controller: "usersController as UC"
 	})
+	.when("/dashboard", {
+		templateUrl: "static/partials/dashboard.html",
+		controller: "itemsController as IC"
+	})
 	.otherwise({
 		redirectTo: "/"
 	})

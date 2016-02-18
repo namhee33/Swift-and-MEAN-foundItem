@@ -16,6 +16,7 @@ module.exports = function(app, passport) {
   });
 
   app.get('/profile', function(req, res){
+    console.log("***********")
     console.log("profile requested", req.user);
     
     res.json({user: req.user});
@@ -30,6 +31,7 @@ module.exports = function(app, passport) {
     console.log("login error");
     res.json({error: "Invalid login or password"});
   })
+
 
   app.post('/signup', passport.authenticate('local-signup', {
         successRedirect : '/profile', // redirect to the secure profile section

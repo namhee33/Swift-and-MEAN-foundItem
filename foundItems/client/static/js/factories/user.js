@@ -1,16 +1,23 @@
 module.factory("userFactory", function($http){
 	var factory = {};
 	var user = {};
-	factory.create = function(user, callback){
-		$http.post("/signup", user).success(function(output){
+	factory.create = function(userInfo, callback){
+		$http.post("/signup", userInfo).success(function(output){
+			user = output.user
 			callback(output);
 		})
 	}
-	factory.login = function(user, callback){
+	factory.login = function(userInfo, callback){
 		console.log("factory login")
-		$http.post("/login", user).success(function(output){
+		$http.post("/login", userInfo).success(function(output){
+			user = output.user;
+			console.log(user);
 			callback(output);
 		})
+	}
+	factory.getUser = function(){
+		console.log(user);
+		return user;
 	}
 	return factory;
 })
