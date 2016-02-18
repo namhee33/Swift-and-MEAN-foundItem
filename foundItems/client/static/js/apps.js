@@ -6,7 +6,8 @@ module.config(function($routeProvider){
 		templateUrl: "static/partials/home.html"
 	})
 	.when("/login", {
-		templateUrl: "static/partials/login.html"
+		templateUrl: "static/partials/login.html",
+		controller: "usersController as UC"
 	})
 	.when("/signup", {
 		templateUrl: "static/partials/signup.html",

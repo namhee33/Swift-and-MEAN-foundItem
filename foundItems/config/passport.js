@@ -99,6 +99,7 @@ module.exports = function(passport) {
     // by default, if there was no name, it would just be called 'local'
 
     passport.use('local-login', new LocalStrategy({
+
         // by default, local strategy uses username and password, we will override with email
         usernameField : 'email',
         passwordField : 'password',
@@ -147,12 +148,12 @@ module.exports = function(passport) {
         User.findOne({ 'local.email' :  email }, function(err, user) {
             // if there are any errors, return the error
             if (err)
-                return done(err);
+                return done(err, null);
 
             // check to see if theres already a user with that email
             if (user) {
                 //return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
-                return done(err);
+                return done(err, null);
             } else {
 
                 // if there is no user with that email

@@ -6,5 +6,11 @@ module.factory("userFactory", function($http){
 			callback(output);
 		})
 	}
+	factory.login = function(user, callback){
+		console.log("factory login")
+		$http.post("/login", user).success(function(output){
+			callback(output);
+		})
+	}
 	return factory;
 })

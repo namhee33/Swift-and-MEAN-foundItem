@@ -1,7 +1,13 @@
 module.controller("usersController", function(userFactory, $location){
 	var _this = this;
 	this.signup = function(){
-		userFactory.create(_this.user, function(data){
+		this.errors = "";
+		userFactory.create(_this.user, function(err, user){
+			if (err.error != undefined){
+				// console.log(err)
+				_this.errors = err.error;
+				console.log(this.errors)
+			}
 			// if (data.message){
 			// 	_this.message = data;
 			// }
@@ -10,8 +16,13 @@ module.controller("usersController", function(userFactory, $location){
 				// userFactory.loggedin(_this.user, function(data){
 				// 	console.log("loggedin")
 				// })
-			console.log("data from server: ", data);
+			// console.log("data from server: ", data);
 			
+		})
+	}
+	this.login = function(){
+		userFactory.login(_this.user, function(data){
+
 		})
 	}
 })
