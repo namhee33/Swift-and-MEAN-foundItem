@@ -130,13 +130,13 @@ module.exports = function(passport) {
 // };
 
     
-    passport.use('local-signup', new LocalStrategy({
+   passport.use('local-signup', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
         usernameField : 'email',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, email, password, res) {
+    function(req, email, password, done) {
 
         // asynchronous
         // User.findOne wont fire unless data is sent back
@@ -147,33 +147,28 @@ module.exports = function(passport) {
         User.findOne({ 'local.email' :  email }, function(err, user) {
             // if there are any errors, return the error
             if (err)
-                console.log(err)
-                return res(err);
+                return done(err);
 
             // check to see if theres already a user with that email
             if (user) {
-                console.log(user)
-                return res(false);
-            } 
-            else {
+                //return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                return done(err);
+            } else {
 
                 // if there is no user with that email
                 // create the user
-                var newUser = new User();
+                var newUser            = new User();
 
-
+                console.log("request body@@@@@@ ", req.body.name);
                  // set the user's local credentials
-                newUser.local.email = req.body.email;
-                newUser.local.password = newUser.generateHash(req.body.password);
-
+                newUser.local.email    = email;
+                newUser.local.password = newUser.generateHash(password);
+                newUser.local.name = req.body.name;
                 // save the user
                 newUser.save(function(err) {
-                    if (err){
+                    if (err)
                         throw err;
-                    }
-                    else{
-                        return res(null, newUser);
-                    }
+                    return done(null, newUser);
                 });
             }
 
@@ -182,6 +177,7 @@ module.exports = function(passport) {
         });
 
     }));
+
 
     // =========================================================================
     // TWITTER =================================================================

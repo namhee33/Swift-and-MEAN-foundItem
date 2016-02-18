@@ -13,6 +13,10 @@ var configDB = require("./config/database.js");
 mongoose.connect(configDB.url);
 require("./config/passport")(passport);
 
+/*take out from original Passport to remove flash message
+var flash    = require('connect-flash');
+var morgan       = require('morgan'); */
+var session      = require('express-session');
 
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded());
@@ -31,9 +35,9 @@ app.use(express.static(__dirname + '/js'));
 
 //require('./config/passport')(passport);
 
-// app.use(session({ secret: 'secretsessionpassword' })); // session secret
-// app.use(passport.initialize());
-// app.use(passport.session()); // persistent login sessions
+app.use(session({ secret: 'secretsessionpassword' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 // app.use(flash()); // use connect-flash for flash messages stored in session
 
 
