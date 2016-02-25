@@ -10,7 +10,9 @@ module.factory("userFactory", function($http){
 	factory.login = function(userInfo, callback){
 		console.log("factory login")
 		$http.post("/login", userInfo).success(function(output){
+			console.log(output);
 			user = output.user;
+			console.log("login");
 			console.log(user);
 			callback(output);
 		})
@@ -18,6 +20,14 @@ module.factory("userFactory", function($http){
 	factory.getUser = function(){
 		console.log(user);
 		return user;
+	}
+
+	factory.findUser = function(id, callback){
+		console.log("finding user")
+		$http.get("/users/"+id).success(function(data){
+			console.log(data);
+			user = data;
+		})
 	}
 	return factory;
 })

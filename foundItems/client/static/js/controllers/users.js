@@ -1,4 +1,4 @@
-module.controller("usersController", function(userFactory, $location){
+module.controller("usersController", function(userFactory, $location, $routeParams){
 	var _this = this;
 	this.signup = function(){
 		this.errors = "";
@@ -28,7 +28,15 @@ module.controller("usersController", function(userFactory, $location){
 	}
 	this.index = function(){
 		_this.user = userFactory.getUser()
+		console.log($routeParams.id)
+		if(_this.user === undefined){
+			console.log($routeParams.id)
+			//_this.user = userFactory.findUser()
+		}
+		console.log(_this.user)
+		
 
 	}
+
 	this.index()
 })
