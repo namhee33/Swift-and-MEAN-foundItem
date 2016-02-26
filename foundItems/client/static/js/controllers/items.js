@@ -3,7 +3,6 @@ module.controller("itemsController", function(userFactory, itemFactory, $routePa
 	this.index = function(){
 		itemFactory.getItems()
 		if($routeParams.id){
-			console.log("got some id")
 			userFactory.findUser($routeParams.id, function(){
 				_this.user = userFactory.getUser();
 			});

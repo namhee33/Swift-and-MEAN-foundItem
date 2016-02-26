@@ -20,22 +20,21 @@ module.controller("usersController", function(userFactory, $location, $routePara
 			}
 			else {
 				user = userFactory.getUser()
-				console.log(user);
-				// console.log(user.local.name)
 				$location.path("/dashboard");
 			}
 		})
 	}
-	this.index = function(){
-		user = userFactory.getUser()
-		console.log(user)
-		if(_this.user === undefined){
-			console.log($routeParams.id)
-			//_this.user = userFactory.findUser()
-		}
-		console.log(_this.user)
-		
 
+	this.index = function(){
+		itemFactory.getItems()
+		if($routeParams.id){
+			userFactory.findUser($routeParams.id, function(){
+				_this.user = userFactory.getUser();
+			});
+		}
+		else {
+			_this.user = userFactory.getUser();
+		}
 	}
 
 	this.index()
