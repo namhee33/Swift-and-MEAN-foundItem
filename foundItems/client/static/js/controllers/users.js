@@ -13,6 +13,7 @@ module.controller("usersController", function(userFactory, $location, $routePara
 		})
 	}
 	this.login = function(){
+		console.log("here")
 		this.errors = "";
 		userFactory.login(_this.userInfo, function(data){
 			if (data.error != undefined){
@@ -26,7 +27,6 @@ module.controller("usersController", function(userFactory, $location, $routePara
 	}
 
 	this.index = function(){
-		itemFactory.getItems()
 		if($routeParams.id){
 			userFactory.findUser($routeParams.id, function(){
 				_this.user = userFactory.getUser();
