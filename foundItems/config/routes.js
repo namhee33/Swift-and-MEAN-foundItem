@@ -1,10 +1,17 @@
 var items = require('./../server/controllers/items.js');
+var users = require('./../server/controllers/users.js');
 
 module.exports = function(app, passport) {
   app.get('/items', function(req, res) {
   	console.log("index request from client!");
     items.index(req, res);
   });
+
+  app.get("/users/:id", function(req, res){
+    console.log("got heeeerreee")
+    console.log(req.params.id)
+    users.index(req, res);
+  })
 
   app.post('/items', function(req, res) {
     items.addItem(req, res);
@@ -15,11 +22,22 @@ module.exports = function(app, passport) {
   	items.addFound(req, res);
   });
 
-  app.get('/profile', function(req, res){
+  app.get('/localProfile', function(req, res){
     console.log("***********")
     console.log("profile requested", req.user);
     
     res.json({user: req.user});
+    //res.redirect("/#/dashboard")
+  
+  });
+
+  app.get('/profile', function(req, res){
+    console.log("***********")
+    console.log("profile requested", req.user);
+    console.log(req.user.id)
+    //res.json({user: req.user});
+    res.redirect("/#/dashboard/"+req.user.id);
+  
   });
 
   app.get('/signupError', function(req, res){
@@ -34,13 +52,13 @@ module.exports = function(app, passport) {
 
 
   app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/profile', // redirect to the secure profile section
+        successRedirect : '/localProfile', // redirect to the secure profile section
         failureRedirect : '/signupError', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
   }));
 
   app.post("/login", passport.authenticate("local-login", {
-    successRedirect : "/profile",
+    successRedirect : "/localProfile",
     failureRedirect: "/loginError",
     failureFlash: true
   }))

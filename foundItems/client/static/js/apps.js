@@ -3,7 +3,8 @@ var module = angular.module("myApp", ["ngRoute", "ngMessages"]);
 module.config(function($routeProvider){
 	$routeProvider
 	.when("/", {
-		templateUrl: "static/partials/home.html"
+		templateUrl: "static/partials/home.html",
+		controller: "usersController as UC"
 	})
 	.when("/login", {
 		templateUrl: "static/partials/login.html",
@@ -17,9 +18,18 @@ module.config(function($routeProvider){
 		templateUrl: "static/partials/dashboard.html",
 		controller: "itemsController as IC"
 	})
+
 	.when("/show", {
 		templateUrl: "static/partials/show.html",
 		controller: "mapsController as MC"
+    })
+	.when("/dashboard/:id", {
+		templateUrl: "static/partials/dashboard.html",
+		controller: "itemsController as IC"
+	})
+	.when("/newItem", {
+		templateUrl: "static/partials/new.html",
+		controller: "itemsController as IC"
 	})
 	.otherwise({
 		redirectTo: "/"
