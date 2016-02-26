@@ -33,7 +33,7 @@
 
         <button type="submit" class="btn btn-warning btn-lg" ng-click="UC.login()">Login</button>
     </form>
-    <div ng-bind="UC.errors"></div>
+    <span ng-if="UC.errors"><div class="alert alert-danger" role="alert"><p ng-bind="UC.errors"></p></div></span>
     <hr>
 
     <p>Need an account? <a href="#/signup">Signup</a></p>
