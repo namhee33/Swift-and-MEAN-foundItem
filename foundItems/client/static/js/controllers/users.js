@@ -27,8 +27,8 @@ module.controller("usersController", function(userFactory, $location, $routePara
 		})
 	}
 	this.index = function(){
-		_this.user = userFactory.getUser()
-		console.log($routeParams.id)
+		user = userFactory.getUser()
+		console.log(user)
 		if(_this.user === undefined){
 			console.log($routeParams.id)
 			//_this.user = userFactory.findUser()
