@@ -1,0 +1,41 @@
+<script>
+	$("#item1").elevateZoom({scrollZoom: true, lensSize: 20, zoomWindowWidth:300, zoomWindowHeight:300, galleryActiveClass: "active"});
+	// $("#item1").elevateZoom({constrainType:"height", constrainSize:274, zoomType: "lens", containLensZoom: true, gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: "active"});
+
+	$("#item1").bind("click", function(e) { 
+		var ez = $('#item1').data('elevateZoom');	
+		$.fancybox(ez.getGalleryList()); 
+		
+		return false; 
+	}); 
+</script>
+
+<div>
+	<map-canvas id="map" center="loc" markers="items"> </map-canvas>
+	 <!-- current location -->
+    <div class="text-info text-right">
+        {{loc.lat | lat:0}}, {{loc.lon | lon:0}}
+    </div>
+    <div id="detailItemBox" class="container-fluid">
+    	<div class="row">
+		  <div class="col-md-4"><img id="item1" class="itemImage" src="static/images/prada.jpeg" data-zoom-image="static/images/prada.jpeg" class="grow"></div>
+		  <div class="col-md-8">
+		  	<div class="row">
+		  		<div class="col-md-12"><h1>Prada Blue Bag 2016</h1></div>
+		  	</div>
+		  	<div class="row">
+		  		<div class="col-md-4 foundTitle"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>Found It!</div>
+		  		<div class="col-md-8">See our full FoundList <button class="btn btn-warning" type="button">
+  Found List <span class="badge">4</span>
+</button></div>
+		  	</div>
+		  	<div class="row">
+		  		<div class="col-md-12 itemDetail">Descrption</div>
+		  	</div>
+		  </div> <!-- end of col -->
+		</div>
+		
+    </div> <!-- bootstrap -->
+
+    
+</div>

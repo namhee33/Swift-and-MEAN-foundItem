@@ -1,0 +1,39 @@
+#map {
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+
+#map {
+    height: 400px;
+    display: block;
+    border: 1px solid black;
+}
+
+#detailItemBox {
+	width: 800px;
+	margin: 30px auto;
+	border: 1px solid;
+	font-size: 20px;
+}
+
+.itemImage{
+	width: 200;
+}
+
+.foundTitle{
+	font-size: 20px;
+	color: orange;
+
+}
+
+.itemDetail{
+
+}
+#item1 img{
+	border:2px solid white;
+} 
+
+.active img{
+	border:2px solid #333 !important;
+}
