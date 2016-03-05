@@ -13,6 +13,7 @@ module.controller("usersController", function(userFactory, $location, $routePara
 		})
 	}
 	this.login = function(){
+		console.log("here")
 		this.errors = "";
 		userFactory.login(_this.userInfo, function(data){
 			if (data.error != undefined){
@@ -20,22 +21,20 @@ module.controller("usersController", function(userFactory, $location, $routePara
 			}
 			else {
 				user = userFactory.getUser()
-				console.log(user);
-				// console.log(user.local.name)
 				$location.path("/dashboard");
 			}
 		})
 	}
-	this.index = function(){
-		_this.user = userFactory.getUser()
-		console.log($routeParams.id)
-		if(_this.user === undefined){
-			console.log($routeParams.id)
-			//_this.user = userFactory.findUser()
-		}
-		console.log(_this.user)
-		
 
+	this.index = function(){
+		if($routeParams.id){
+			userFactory.findUser($routeParams.id, function(){
+				_this.user = userFactory.getUser();
+			});
+		}
+		else {
+			_this.user = userFactory.getUser();
+		}
 	}
 
 	this.index()

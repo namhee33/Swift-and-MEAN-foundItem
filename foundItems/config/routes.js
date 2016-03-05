@@ -6,13 +6,10 @@ var type = upload.single('file');
 
 module.exports = function(app, passport) {
   app.get('/items', function(req, res) {
-  	console.log("index request from client!");
     items.index(req, res);
   });
 
   app.get("/users/:id", function(req, res){
-    console.log("got heeeerreee")
-    console.log(req.params.id)
     users.index(req, res);
   })
 
@@ -33,19 +30,10 @@ module.exports = function(app, passport) {
   });
 
   app.get('/localProfile', function(req, res){
-    console.log("***********")
-    console.log("profile requested", req.user);
-    
     res.json({user: req.user});
-    //res.redirect("/#/dashboard")
-  
   });
 
   app.get('/profile', function(req, res){
-    console.log("***********")
-    console.log("profile requested", req.user);
-    console.log(req.user.id)
-    //res.json({user: req.user});
     res.redirect("/#/dashboard/"+req.user.id);
   
   });
@@ -56,40 +44,34 @@ module.exports = function(app, passport) {
   });
 
   app.get("/loginError", function(req, res){
-    console.log("login error");
     res.json({error: "Invalid login or password"});
   })
 
 
   app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/localProfile', // redirect to the secure profile section
-        failureRedirect : '/signupError', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
+    successRedirect : '/localProfile',
+    failureRedirect : '/signupError'
   }));
 
   app.post("/login", passport.authenticate("local-login", {
     successRedirect : "/localProfile",
-    failureRedirect: "/loginError",
-    failureFlash: true
+    failureRedirect: "/loginError"
   }))
 
   app.get('/auth/twitter', passport.authenticate('twitter'));
 
 
-  app.get('/auth/twitter/callback',
-        passport.authenticate('twitter', {
-            successRedirect : '/profile',
-            failureRedirect : '/'
-        }));
+  app.get('/auth/twitter/callback', passport.authenticate('twitter', {
+    successRedirect : '/profile',
+    failureRedirect : '/'
+  }));
 
 
   app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 
-    // the callback after google has authenticated the user
-  app.get('/auth/google/callback',
-    passport.authenticate('google', {
-            successRedirect : '/profile',
-            failureRedirect : '/'
+  app.get('/auth/google/callback', passport.authenticate('google', {
+    successRedirect : '/profile',
+    failureRedirect : '/'
   }));
 
    
@@ -101,12 +83,9 @@ module.exports = function(app, passport) {
 
   app.get('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
 
-    // handle the callback after facebook has authenticated the user
-  app.get('/auth/facebook/callback',
-    passport.authenticate('facebook', {
-        successRedirect : '/profile',
-        failureRedirect : '/'
-    })
-  );
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    successRedirect : '/profile',
+    failureRedirect : '/'
+  }));
 
 }

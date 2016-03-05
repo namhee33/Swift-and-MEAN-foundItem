@@ -1,3 +1,4 @@
+
 module.controller("itemsController", function($scope, userFactory, itemFactory, $routeParams){
 	
 	var imageData;
@@ -30,9 +31,7 @@ module.controller("itemsController", function($scope, userFactory, itemFactory, 
 			console.log($routeParams.id)
 			userFactory.findUser($routeParams.id)
 			userFactory.getUser();
-
 		}
-
 	}
 
 	$scope.createItem = function(){
@@ -44,6 +43,7 @@ module.controller("itemsController", function($scope, userFactory, itemFactory, 
 
 		});
 	}
+	
 	$scope.index();
 
 	function getBase64Image(callback) {
