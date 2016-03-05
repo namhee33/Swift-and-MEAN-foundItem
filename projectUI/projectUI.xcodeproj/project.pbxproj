@@ -449,7 +449,7 @@
 				);
 				INFOPLIST_FILE = projectUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sarsherman.projectUI;
+				PRODUCT_BUNDLE_IDENTIFIER = sarsherman2.projectUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "projectUI/projectUI-Bridging-Header.h";
@@ -472,7 +472,7 @@
 				);
 				INFOPLIST_FILE = projectUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sarsherman.projectUI;
+				PRODUCT_BUNDLE_IDENTIFIER = sarsherman2.projectUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "projectUI/projectUI-Bridging-Header.h";

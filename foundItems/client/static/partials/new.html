@@ -1,8 +1,15 @@
 <h1>Create a new item listing</h1>
 
+
 <form>
-Item name/type: <input type="text" ng-model="IC.itemInfo.itemName"></input>
-Description: <input type="text" placeholder="(size, color, etc)" ng-model="IC.itemInfo.detail"></input>
-Location: <input type="text" placeholder="what area are you looking for item in?" ng-model="IC.itemInfo.location"></input>
-<button ng-click="IC.createItem()">Add item</button>
+Item name/type: <input type="text" ng-model="itemInfo.itemName"></input>
+Description: <input type="text" placeholder="(size, color, etc)" ng-model="itemInfo.detail"></input>
+
+Location: <input type="text" placeholder="what area are you looking for item in?" ng-model="itemInfo.location"></input>
+
+<img id="itemImage" ng-src="{{image_source}}">
+Image: <input type="file" name="file" id="trigger" onchange="angular.element(this).scope().setFile(this)" accept="image/*"></input>
+<canvas id="myCanvas" width="250" height="300" hidden></canvas>
+<button ng-click="createItem()">Add item</button>
+
 </form>

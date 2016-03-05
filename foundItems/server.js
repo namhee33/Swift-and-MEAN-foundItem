@@ -7,6 +7,9 @@ var cookieParser = require('cookie-parser');
 var path = require('path');
 var Mailgun = require('mailgun-js');
 var bodyParser = require('body-parser');
+// image file upload
+var multer = require('multer');
+var multer_settings = multer({ dest: './uploads/'})
 
 var configDB = require("./config/database.js");
 

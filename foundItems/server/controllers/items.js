@@ -23,6 +23,16 @@ module.exports = (function(){
 			})
 		},
 
+		addItemW: function(req, res){
+			// console.log("Received Item body: ", req.body.item, req.body.user);
+			console.log("Detail: ", req.body.itemName);
+			console.log("Detail: ", req.body.location);
+			console.log("Detail: ", req.body.detail);
+			console.log("Detail: ", req.body.email);
+			console.log("Received Item file: ", req.file.filename);
+			//save newItem info into DB with image file name
+		},
+
 		addItem: function(req, res){
 			
 		  	var date_fName = new Date();

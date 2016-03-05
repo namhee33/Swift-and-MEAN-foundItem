@@ -1,5 +1,8 @@
 var items = require('./../server/controllers/items.js');
 var users = require('./../server/controllers/users.js');
+var multer = require('multer');
+var upload = multer({dest: 'fileUpload/'});
+var type = upload.single('file');
 
 module.exports = function(app, passport) {
   app.get('/items', function(req, res) {
@@ -13,8 +16,15 @@ module.exports = function(app, passport) {
     users.index(req, res);
   })
 
+  // addItems from iOS
+
   app.post('/items', function(req, res) {
     items.addItem(req, res);
+  });
+
+  // addItems from Web
+  app.post('/addItems', type, function(req, res, next){
+    items.addItemW(req,res);
   });
 
   app.post('/addFound', function(req, res){

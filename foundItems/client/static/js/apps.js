@@ -36,21 +36,7 @@ module.config(function($routeProvider){
 	})
 })
 
-// module.directive('mapCanvas', function(){
-// 	return{
-// 		restrict: 'E',
-// 		link: function(scope, element){
-// 			var mapOptions = {
-// 				zoom: 8,
-// 				center: new google.maps.LatLng(-34.397, 150.644)
 
-// 			};
-
-// 			new google.maps.Map(element[0], mapOptions);
-
-// 		}
-// 	};
-// });
 
 // formats a number as a latitude (e.g. 40.46... => "40°27'44"N")
 module.filter('lat', function () {
